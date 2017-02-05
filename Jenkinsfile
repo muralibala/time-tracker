@@ -16,4 +16,12 @@ node {
                       sh "mvn clean package"
                   } 
    }
+   
+   stage('SonarQube analysis') {
+		// requires SonarQube Scanner 2.8+
+		def scannerHome = tool 'Sonar Scanner';
+		withSonarQubeEnv('My SonarQube Server') {
+		  sh "${scannerHome}/bin/sonar-scanner"
+		}
+   }
 }
