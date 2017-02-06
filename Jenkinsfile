@@ -1,3 +1,5 @@
+#!groovy
+
 node {
 
 	currentBuild.result = "SUCCESS"
@@ -12,6 +14,8 @@ node {
 		  // ** in the global configuration.           
 		  maven = tool 'M3'
 		  java = tool 'jdk'
+		  echo "My branch is: ${env.BRANCH_NAME}"
+		  echo "git B: ${env.GIT_BRANCH}"
 	   }
 	   
 	   stage('Build') {
