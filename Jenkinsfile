@@ -6,10 +6,10 @@ node {
 	   def java
 	   stage('Preparation') { // for display purposes
 		  // Get some code from a GitHub repository
-		  git 'https://github.com/srctips/time-tracker.git'
+		  git 'https://github.com/muralibala/time-tracker.git'
 		  // Get the Maven tool.
 		  // ** NOTE: This 'M3' Maven tool must be configured
-		  // **       in the global configuration.           
+		  // ** in the global configuration.           
 		  maven = tool 'M3'
 		  java = tool 'jdk'
 	   }
@@ -45,7 +45,7 @@ node {
             mail body: "project build error is here: ${env.BUILD_URL}" ,
             from: 'i.am.muralibala@gmail.com',
             replyTo: 'i.am.muralibala@gmail.com',
-            subject: 'project build failed',
+            subject: "project build failed ${BUILD_NUMBER}",
             to: 'i.am.muralibala@gmail.com'
 
         throw err
