@@ -31,10 +31,10 @@ node {
 	   stage ('Cleanup') {
 
             echo 'prune and cleanup'
-            mail body: 'project build successful - ${env.BUILD_URL}',
+            mail body: "project build successful - ${env.BUILD_URL}",
             from: 'i.am.muralibala@gmail.com',
             replyTo: 'i.am.muralibala@gmail.com',
-            subject: 'SUCCESS ${BUILD_NUMBER}',
+            subject: "SUCCESS ${BUILD_NUMBER}",
             to: 'i.am.muralibala@gmail.com'
 		}				
 	}
