@@ -17,7 +17,10 @@ node {
 		  java = tool 'jdk'
 		  echo "git B: ${env.GIT_BRANCH}"
 		  sh "env"
+		  echo "Branch Name"
 		  echo env.BRANCH_NAME
+		  echo "Git Branch Name"
+		  echo env.GIT_BRANCH 
 		  echo "Building on branch: ${env.BRANCH_NAME}"
 		  if (!isOnMaster()) {
 			echo "Not master"
