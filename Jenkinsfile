@@ -15,9 +15,12 @@ node {
 		  // ** in the global configuration.           
 		  maven = tool 'M3'
 		  java = tool 'jdk'
-		  echo "My branch is: ${env.BRANCH_NAME}"
 		  echo "git B: ${env.GIT_BRANCH}"
-		  sh 'echo $BRANCH_NAME'
+		  sh "env"
+		  echo "Building on branch: ${env.BRANCH_NAME}"
+		  if (!isOnMaster()) {
+			echo "Not master"
+		  }
 		  
 	   }
 	   
@@ -57,4 +60,8 @@ node {
 
         throw err
     }
+}
+
+private boolean isOnMaster() {
+    return !env.BRANCH_NAME || env.BRANCH_NAME == 'master';
 }
