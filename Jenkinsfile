@@ -6,7 +6,6 @@ node {
 	try{
 	   def mvnHome
 	   def java
-	   def branch = "${BRANCH_NAME}"
 	   
 	   stage('Preparation') { // for display purposes
 		  // Get some code from a GitHub repository
@@ -18,7 +17,6 @@ node {
 		  java = tool 'jdk'
 		  echo "My branch is: ${env.BRANCH_NAME}"
 		  echo "git B: ${env.GIT_BRANCH}"
-		  echo branch
 		  sh 'echo $BRANCH_NAME'
 		  
 	   }
